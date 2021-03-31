@@ -1,0 +1,27 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+trigger:
+  ref:
+    - refs/heads/trunk
+    - refs/pull/**
+    - refs/tags/**
+
+volumes:
+    - name: docker_sock
+      host:
+        path: /var/run/docker.sock
+
+steps:
+  - name: build
+    image: plugins/docker
+    volumes:
+      - name: docker_sock
+        path: /var/run/docker.sock
+    
+    commands:
+      - cd haskell-build
+      - docker build -t registry.digitalocean.com/stewcasa/haskell-build:$DRONE_BUILD_NUMBER .
+      - docker push registry.digitalocean.com/stewcasa/haskell-build:$DRONE_BUILD_NUMBER 
