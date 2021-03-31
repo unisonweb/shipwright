@@ -13,6 +13,9 @@ volumes:
     - name: docker_sock
       host:
         path: /var/run/docker.sock
+    - name: root_home
+      host:
+        path: /root
 
 steps:
   - name: build
@@ -20,6 +23,8 @@ steps:
     volumes:
       - name: docker_sock
         path: /var/run/docker.sock
+      - name: root_home
+        path: /root
     
     commands:
       - cd haskell-build
