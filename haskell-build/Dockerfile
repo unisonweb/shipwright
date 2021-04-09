@@ -1,33 +1,4 @@
-
-FROM debian
-
-ENV LANG=en_US.UTF-8
-
-COPY hashicorp-download.sh /usr/local/bin
-
-RUN apt-get update                                       && \
-    apt-get -y install \
-      build-essential \
-      libffi-dev \
-      libgmp-dev \
-      make \
-      xz-utils \
-      zlib1g-dev \
-      git \
-      gnupg \
-      netbase \
-      libncurses-dev \
-      libncurses5 \
-      locales \
-      unzip \
-      curl \
-      wget                                               &&\
-    echo "en_US.UTF-8 UTF-8" > /etc/locale.gen           && \
-    dpkg-reconfigure --frontend=noninteractive locales   && \
-    update-locale LANG=en_US.UTF-8                       && \
-    chmod +x /usr/local/bin/hashicorp-download.sh        && \
-    /usr/local/bin/hashicorp-download.sh vault 1.7.0     && \
-    cd /opt                                              && \
+FROM base
     wget https://get.haskellstack.org/stable/linux-x86_64.tar.gz && \
     cd /opt && \
     tar xzf linux-x86_64.tar.gz && \
