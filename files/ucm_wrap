@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -eux
+
+env UCM_PORT=26116 UCM_HOST='*' UCM_TOKEN=$(cat /run/ucm_token) /usr/local/bin/ucm --new-runtime 
