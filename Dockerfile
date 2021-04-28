@@ -70,5 +70,6 @@ RUN curl -L -o elm.gz https://github.com/elm/compiler/releases/download/0.19.1/b
 # a container for buliding elm, such as the codebase ui
 
 FROM base as elm-builder
-RUN wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh -O- | bash
+RUN wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh -O- | bash &&\
+    nvm install node
 COPY --from=elm-download /usr/local/bin/elm /usr/local/bin/elm
