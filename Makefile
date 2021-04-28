@@ -40,11 +40,13 @@ push-%:
 	docker push ${TAG}
 
 build:
+	$(MAKE) build-docker-builder
 	$(MAKE) build-ucm-codebase-server
 	$(MAKE) build-haskell-builder
 	$(MAKE) build-elm-builder
 
 push:
+	$(MAKE) push-docker-builder
 	$(MAKE) push-ucm-codebase-server
 	$(MAKE) push-haskell-builder
 	$(MAKE) push-elm-builder

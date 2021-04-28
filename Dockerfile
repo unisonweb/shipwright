@@ -48,6 +48,12 @@ ENTRYPOINT /usr/local/bin/ucm_wrap
 ######################################################################
 # a container for buliding ucm
 
+FROM debianup as docker-builder
+RUN \
+    wget https://get.docker.com/ -O- | su && \
+    apt-get -y install build-essential
+    
+
 FROM base as haskell-builder
 RUN \
     wget https://get.haskellstack.org/stable/linux-x86_64.tar.gz -O- | tar -x -z -C /opt && \

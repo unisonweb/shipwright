@@ -18,7 +18,7 @@ volumes:
         path: /root
 
 steps:
-  - name: build
+  - name: registry.digitalocean.com/stewcasa/docker-builder:1
     image: plugins/docker
     volumes:
       - name: docker_sock
