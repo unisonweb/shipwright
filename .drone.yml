@@ -18,8 +18,8 @@ volumes:
         path: /root
 
 steps:
-  - name: registry.digitalocean.com/stewcasa/docker-builder:1
-    image: plugins/docker
+  - name: build
+    image: registry.digitalocean.com/stewcasa/docker-builder:1
     volumes:
       - name: docker_sock
         path: /var/run/docker.sock
