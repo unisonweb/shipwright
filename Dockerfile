@@ -55,8 +55,16 @@ RUN \
     
 
 FROM base as haskell-builder
-RUN \
-    apt-get -y install build-essential &&\
+RUN apt-get -y install \
+      build-essential \
+      libffi-dev \
+      libgmp-dev \
+      make \
+      xz-utils \
+      zlib1g-dev \
+      git \
+      gnupg \
+      netbase && \
     wget https://get.haskellstack.org/stable/linux-x86_64.tar.gz -O- | tar -x -z -C /opt && \
     ln -s /opt/stack-*/stack /usr/local/bin/stack
 
