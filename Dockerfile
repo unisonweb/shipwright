@@ -71,5 +71,6 @@ RUN curl -L -o elm.gz https://github.com/elm/compiler/releases/download/0.19.1/b
 
 FROM base as elm-builder
 RUN wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh -O- | bash &&\
-    nvm install node
+    $HOME/.nvm/nvm.sh &&\
+    NVM_DIR=$HOME/.nvm nvm install node
 COPY --from=elm-download /usr/local/bin/elm /usr/local/bin/elm
