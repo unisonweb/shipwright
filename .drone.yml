@@ -27,6 +27,5 @@ steps:
         path: /root
     
     commands:
-      - cd haskell-build
-      - docker build -t registry.digitalocean.com/stewcasa/haskell-build:$DRONE_BUILD_NUMBER .
-      - docker push registry.digitalocean.com/stewcasa/haskell-build:$DRONE_BUILD_NUMBER 
+      - make build
+      - make push
