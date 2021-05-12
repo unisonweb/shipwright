@@ -34,7 +34,7 @@ RUN apt-get -y install libncurses-dev                       \
 
 FROM debianup as download-ucm
 ARG UCM_VERSION
-RUN wget http://hub.stew.casa/downloads/unison-${UCM_VERSION}.tar.gz -O- | tar -x -z -C /usr/local/bin 
+RUN wget http://hub.unison-lang.org/downloads/unison-${UCM_VERSION}.tar.gz -O- | tar -x -z -C /usr/local/bin 
 
 ######################################################################
 # a ucm codebase server to be run alongside a codebase browser
