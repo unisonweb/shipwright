@@ -29,30 +29,14 @@ RUN apt-get -y install libncurses-dev                       \
     dpkg-reconfigure --frontend=noninteractive locales   && \
     update-locale LANG=en_US.UTF-8
 
-######################################################################
-# download a unison .tar.gz and unzip the ucm binary inside
-
-FROM debianup as download-ucm
-ARG UCM_VERSION
-RUN wget http://hub.unison-lang.org/downloads/unison-${UCM_VERSION}.tar.gz -O- | tar -x -z -C /usr/local/bin 
-
-######################################################################
-# a ucm codebase server to be run alongside a codebase browser
-
-FROM base as ucm-codebase-server
-COPY --from=download-ucm /usr/local/bin/ucm /usr/local/bin/ucm
-COPY files/ucm_wrap /usr/local/bin/
-RUN chmod +x /usr/local/bin/ucm_wrap
-ENTRYPOINT /usr/local/bin/ucm_wrap
-
-######################################################################
-# a container for buliding ucm
-
 FROM debianup as docker-builder
 RUN \
     wget https://get.docker.com/ -O- | su && \
     apt-get -y install build-essential
     
+
+######################################################################
+# a container for buliding ucm
 
 FROM base as haskell-builder
 RUN apt-get -y install \
@@ -74,6 +58,22 @@ RUN curl -L -o elm.gz https://github.com/elm/compiler/releases/download/0.19.1/b
     gunzip elm.gz                                        &&\
     mv elm /usr/local/bin                                &&\
     chmod +x /usr/local/bin/elm
+
+######################################################################
+# download a unison .tar.gz and unzip the ucm binary inside
+
+FROM debianup as download-ucm
+ARG UCM_VERSION
+RUN wget http://hub.unison-lang.org/downloads/unison-${UCM_VERSION}.tar.gz -O- | tar -x -z -C /usr/local/bin 
+
+######################################################################
+# a ucm codebase server to be run alongside a codebase browser
+
+FROM base as ucm-codebase-server
+COPY --from=download-ucm /usr/local/bin/ucm /usr/local/bin/ucm
+COPY files/ucm_wrap /usr/local/bin/
+RUN chmod +x /usr/local/bin/ucm_wrap
+ENTRYPOINT /usr/local/bin/ucm_wrap
 
 ######################################################################
 # a container for buliding elm, such as the codebase ui
