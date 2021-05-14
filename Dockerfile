@@ -75,11 +75,3 @@ COPY files/ucm_wrap /usr/local/bin/
 RUN chmod +x /usr/local/bin/ucm_wrap
 ENTRYPOINT /usr/local/bin/ucm_wrap
 
-######################################################################
-# a container for buliding elm, such as the codebase ui
-
-FROM base as elm-builder
-RUN wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh -O- | bash 
-ENV NVM_DIR=/root/.nvm
-RUN . $NVM_DIR/nvm.sh && nvm install node
-COPY --from=elm-download /usr/local/bin/elm /usr/local/bin/elm

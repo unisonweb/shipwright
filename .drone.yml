@@ -27,5 +27,5 @@ steps:
         path: /root
     
     commands:
-      - make build-haskell-builder
-      - make push-haskell-builder
+      - make build
+      - make push
