@@ -64,7 +64,7 @@ RUN curl -L -o elm.gz https://github.com/elm/compiler/releases/download/0.19.1/b
 
 FROM debianup as download-ucm
 ARG UCM_VERSION
-RUN wget http://downloads.unison-lang.org/downloads/unison-${UCM_VERSION}.tar.gz -O- | tar -x -z -C /usr/local/bin 
+RUN wget http://downloads.unison-lang.org/unison-${UCM_VERSION}.tar.gz -O- | tar -x -z -C /usr/local/bin 
 
 ######################################################################
 # a ucm codebase server to be run alongside a codebase browser
