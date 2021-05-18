@@ -2,4 +2,4 @@
 
 set -eux
 
-screen env UCM_PORT=26116 UCM_HOST='*' UCM_TOKEN=sekret /usr/local/bin/ucm 
+screen -d -m env UCM_PORT=26116 UCM_HOST='*' UCM_TOKEN=sekret /usr/local/bin/ucm 
