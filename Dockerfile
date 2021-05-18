@@ -75,7 +75,7 @@ COPY files/share.transcript.md /usr/local/share/share.transcript.md
 COPY files/initialize-codebase.sh /usr/local/bin/initialize-codebase.sh
 COPY files/ucm_wrap /usr/local/bin/
 RUN apt-get -y install less git && chmod +x /usr/local/bin/ucm_wrap /usr/local/bin/initialize-codebase.sh && \
-    /usr/local/bin/initialize-codebase.sh /srv/codebase
+    /usr/local/bin/initialize-codebase.sh /root
 
 ENTRYPOINT /usr/local/bin/ucm_wrap
 

@@ -11,7 +11,7 @@ usage() {
 
 export CODEBASE=$(/usr/local/bin/ucm transcript -save-codebase /usr/local/share/share.transcript.md | awk '/You can run/{sub(".*-codebase ", "", $0); sub("`.*", "", $0) ; print}')
 
-mv $CODEBASE $1
+mv $CODEBASE/.unison $1/.unison
 
 
 
