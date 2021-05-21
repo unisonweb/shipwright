@@ -12,22 +12,14 @@ CODEBASE=$(/usr/local/bin/ucm transcript -save-codebase /usr/local/share/share.t
 rm -rf ${HOME}/.unison ${HOME}/.cache
 mv $CODEBASE/.unison ${HOME}/.unison
 
-CODEBASE=$(/usr/local/bin/ucm transcript.fork -save-codebase /usr/local/share/push.md  | awk '/You can run/{sub(".*-codebase ", "", $0); sub("`.*", "", $0) ; print}')
-
-rm -rf ${HOME}/.unison ${HOME}/.cache
-mv $CODEBASE/.unison ${HOME}/.unison
+echo "push /tmp/codebase" | /usr/local/bin/ucm
+rm -rf ${HOME}/.cache
 
 CODEBASE=$(/usr/local/bin/ucm transcript.fork -save-codebase --old-codebase /usr/local/share/share.transcript.old.md  | awk '/You can run/{sub(".*-codebase ", "", $0); sub("`.*", "", $0) ; print}')
 
-rm -rf ${HOME}/.unison ${HOME}/.cache
-mv $CODEBASE/.unison ${HOME}/.unison
+echo "push /tmp/codebase" | /usr/local/bin/ucm
+rm -rf ${HOME}/.cache
 
-CODEBASE=$(/usr/local/bin/ucm transcript.fork -save-codebase /usr/local/share/push.md  | awk '/You can run/{sub(".*-codebase ", "", $0); sub("`.*", "", $0) ; print}')
+/usr/local/bin/ucm init
 
-rm -rf ${HOME}/.unison ${HOME}/.cache
-mv $CODEBASE/.unison ${HOME}/.unison
-
-CODEBASE=$(/usr/local/bin/ucm transcript.fork -save-codebase /usr/local/share/pull.md | awk '/You can run/{sub(".*-codebase ", "", $0); sub("`.*", "", $0) ; print}')
-
-rm -rf ${HOME}/.unison ${HOME}/.cache
-mv $CODEBASE/.unison ${HOME}/.unison
+echo "pull /tmp/codebase ." | /usr/local/bin/ucm
