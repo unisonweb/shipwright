@@ -2,11 +2,10 @@
 
 set -ex
 
-rm -fr $HOME/.cache /tmp/codebase
+rm -fr /tmp/codebase
 
 mkdir /tmp/codebase
 git init /tmp/codebase
-chmod -R 777 /tmp/codebase
 
 /usr/local/bin/ucm transcript /usr/local/share/share.transcript.md
 /usr/local/bin/ucm transcript --old-codebase /usr/local/share/share.transcript.old.md
