@@ -2,16 +2,13 @@
 
 set -ex
 
-usage() {
-    echo "usage $0 destination"
-    exit 1
-}
+rm -fr $HOME/.cache /tmp/codebase
 
-[ $# -eq 1 ] || usage
+mkdir /tmp/codebase
+git init --bare /tmp/codebase
 
-export CODEBASE=$(/usr/local/bin/ucm transcript -save-codebase /usr/local/share/share.transcript.md | awk '/You can run/{sub(".*-codebase ", "", $0); sub("`.*", "", $0) ; print}')
+/usr/local/bin/ucm transcript /usr/local/share/share.transcript.md
+/usr/local/bin/ucm transcript --old-codebase /usr/local/share/share.transcript.old.md
+CODEBASE=$(/usr/local/bin/ucm transcript /usr/local/share/pull.md | awk '/You can run/{sub(".*-codebase ", "", $0); sub("`.*", "", $0) ; print}')
 
-mv $CODEBASE/.unison $1/.unison
-
-
-
+mv $CODEBASE/.unison /root/.unison

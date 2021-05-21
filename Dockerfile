@@ -72,10 +72,11 @@ RUN wget http://downloads.unison-lang.org/unison-${UCM_VERSION}.tar.gz -O- | tar
 FROM base as ucm-codebase-server
 COPY --from=download-ucm /usr/local/bin/ucm /usr/local/bin/ucm
 COPY files/share.transcript.md /usr/local/share/share.transcript.md
+COPY files/share.transcript.old.md /usr/local/share/share.transcript.old.md
 COPY files/initialize-codebase.sh /usr/local/bin/initialize-codebase.sh
 COPY files/ucm_wrap /usr/local/bin/
 RUN apt-get -y install screen less git && chmod +x /usr/local/bin/ucm_wrap /usr/local/bin/initialize-codebase.sh && \
-    /usr/local/bin/initialize-codebase.sh /root
+    /usr/local/bin/initialize-codebase.sh 
 
 ENTRYPOINT /usr/local/bin/ucm_wrap
 
