@@ -6,6 +6,7 @@ rm -fr $HOME/.cache /tmp/codebase
 
 mkdir /tmp/codebase
 git init --bare /tmp/codebase
+chmod -R 777 /tmp/codebase
 
 /usr/local/bin/ucm transcript /usr/local/share/share.transcript.md
 /usr/local/bin/ucm transcript --old-codebase /usr/local/share/share.transcript.old.md
