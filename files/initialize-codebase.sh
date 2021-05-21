@@ -5,7 +5,7 @@ set -ex
 rm -fr $HOME/.cache /tmp/codebase
 
 mkdir /tmp/codebase
-git init --bare /tmp/codebase
+git init /tmp/codebase
 chmod -R 777 /tmp/codebase
 
 /usr/local/bin/ucm transcript /usr/local/share/share.transcript.md
