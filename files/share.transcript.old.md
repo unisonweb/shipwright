@@ -7,5 +7,4 @@
 .> pull https://github.com/fboeller/unison-expect:.trunk .contrib.fboeller.expect.v0
 .> pull https://github.com/hojberg/unison-money:.releases._latest .contrib.hoyberg.money.v0
 .> pull https://github.com/thoradam/unison-read:.releases._v0 contrib.thoradam.read.v0
-.> push /tmp/codebase
 ```
