@@ -23,7 +23,6 @@ echo "pull https://github.com/thoradam/unison-read:.releases._v0 contrib.thorada
 
 /usr/local/bin/ucm -codebase /tmp/foo upgrade-codebase
 
-
 echo "push /tmp/codebase" | /usr/local/bin/ucm -codebase /tmp/foo 
 
 rm -rf ${HOME}/.cache
