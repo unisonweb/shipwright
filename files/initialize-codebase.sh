@@ -21,6 +21,9 @@ echo "pull https://github.com/fboeller/unison-expect:.trunk .contrib.fboeller.ex
 echo "pull https://github.com/hojberg/unison-money:.releases._latest .contrib.hoyberg.money.v0" | /usr/local/bin/ucm -codebase /tmp/foo --old-codebase
 echo "pull https://github.com/thoradam/unison-read:.releases._v0 contrib.thoradam.read.v0" | /usr/local/bin/ucm -codebase /tmp/foo --old-codebase
 
+/usr/local/bin/ucm -codebase /tmp/foo upgrade-codebase
+
+
 echo "push /tmp/codebase" | /usr/local/bin/ucm -codebase /tmp/foo 
 
 rm -rf ${HOME}/.cache
