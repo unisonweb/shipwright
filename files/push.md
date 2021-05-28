@@ -1,3 +1,0 @@
-```ucm
-.> push /tmp/codebase
-```

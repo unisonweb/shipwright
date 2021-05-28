@@ -1,3 +1,0 @@
-```ucm
-.> pull /tmp/codebase .
-```
