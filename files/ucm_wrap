@@ -2,4 +2,4 @@
 
 set -eux
 
-env UCM_PORT=26116 UCM_HOST='*' UCM_TOKEN=sekret /usr/local/bin/ucm 
+env UCM_PORT=26116 UCM_HOST='*' UCM_TOKEN=sekret /usr/local/bin/ucm --headless +RTS -N
