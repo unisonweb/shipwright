@@ -2,4 +2,7 @@
 
 set -eux
 
-env UCM_PORT=26116 UCM_HOST='*' UCM_TOKEN=sekret /usr/local/bin/ucm headless +RTS -N
+if [ -z "$NOMAD_PORT_http" ]; then UCM_PORT=26116; else UCM_PORT="$NOMAD_PORT_http" ; fi
+export UCM_PORT
+
+env UCM_HOST='*' UCM_TOKEN=sekret /usr/local/bin/ucm headless +RTS -N
