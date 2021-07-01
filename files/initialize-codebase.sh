@@ -33,3 +33,4 @@ echo "pull https://github.com/thoradam/unison-read:.releases._v0 contrib.thorada
 # Next, v2 codebases. Put your codebase here if you have already moved to the new v2 codebase format
 #
 echo "pull https://github.com/unisonweb/base_v2:.trunk .base" | /usr/local/bin/ucm
+echo "pull https://github.com/unisonweb/http:.http.trunk .http" | /usr/local/bin/ucm
