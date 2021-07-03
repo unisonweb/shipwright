@@ -74,8 +74,7 @@ RUN apt-get -y install nginx gpg certbot python-certbot-nginx less git libnginx-
     chmod +x /usr/local/bin/ucm_wrap /usr/local/bin/initialize-codebase.sh && \
     /usr/local/bin/initialize-codebase.sh && \
     rm -f /etc/nginx/sites-enabled/default
-COPY files/nginx.share /etc/nginx/sites-enabled/share
+COPY files/nginx.share.tpl /etc/nginx/share.tpl
 COPY --from=download-ucm /srv/share /srv/share
-EXPOSE 26116
-ENTRYPOINT /usr/local/bin/ucm_wrap
+EXENTRYPOINT /usr/local/bin/ucm_wrap
 

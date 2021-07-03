@@ -4,5 +4,9 @@ set -eux
 
 export UCM_PORT=26117
 
+if [ -z "$NOMAD_PORT_http" ]; then NGINX_PORT=26116; else NGINX_PORT="$NOMAD_PORT_http" ; fi
+
+sed "s/__PORT__/$NGINX_PORT/g" < /etc/nginx/share.tpl > /etc/nginx/sites-enabled/share
 nginx
+
 env UCM_HOST='*' UCM_TOKEN=sekret /usr/local/bin/ucm headless +RTS -N

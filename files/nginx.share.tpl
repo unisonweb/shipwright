@@ -1,5 +1,5 @@
 server {
-  listen 26116;
+  listen __PORT__;
   root /srv/share;
 
   location ~ /api/(?<rest>.*) {
