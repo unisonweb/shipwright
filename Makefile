@@ -28,7 +28,7 @@ help:
 build-%: TARGET=$(@:build-%=%)
 build-%: TAG=${REPO}/${TARGET}:${build_number}	
 build-%:
-	docker build --no-cache
+	docker build --no-cache \
                  --build-arg VAULT_VERSION=${vault_version} \
                  --build-arg UCM_VERSION=${ucm_version}     \
 				 --target ${TARGET}                           \
