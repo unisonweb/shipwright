@@ -35,4 +35,5 @@ echo "pull https://github.com/thoradam/unison-read:.releases._v0 contrib.thorada
 echo "pull https://github.com/unisonweb/base:.trunk .base" | /usr/local/bin/ucm
 echo "pull https://github.com/unisonweb/distributed:.trunk .distributed" | /usr/local/bin/ucm
 echo "pull https://github.com/unisonweb/http:.http.trunk .http" | /usr/local/bin/ucm
+echo "pull https://github.com/stew/unison-remote:.trunk .contrib.stew.remote" | /usr/local/bin/ucm
 echo "pull https://github.com/anovstrup/unison-all:_memo.releases._v1 .contrib.anovstrup.memo.v1" | /usr/local/bin/ucm
