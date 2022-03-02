@@ -42,12 +42,10 @@ push-%:
 
 build:
 	$(MAKE) build-docker-builder
-	$(MAKE) build-ucm-codebase-server
 	$(MAKE) build-haskell-builder
 
 push:
 	$(MAKE) push-docker-builder
-	$(MAKE) push-ucm-codebase-server
 	$(MAKE) push-haskell-builder
 
 
