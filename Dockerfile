@@ -43,6 +43,7 @@ RUN apt-get -y install \
       build-essential \
       libffi-dev \
       libgmp-dev \
+      libpq-dev \
       make \
       xz-utils \
       zlib1g-dev \
