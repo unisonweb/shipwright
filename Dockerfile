@@ -52,29 +52,3 @@ RUN apt-get -y install \
     wget https://get.haskellstack.org/stable/linux-x86_64.tar.gz -O- | tar -x -z -C /opt && \
     ln -s /opt/stack-*/stack /usr/local/bin/stack
 
-######################################################################
-# download a unison .tar.gz and unzip the ucm binary inside
-
-FROM debianup as download-ucm
-ARG UCM_VERSION
-RUN wget http://downloads.unison-lang.org/unison-${UCM_VERSION}.tar.gz -O- | tar -x -z -C /usr/local/bin 
-RUN wget https://github.com/unisonweb/codebase-ui/releases/download/latest/unisonShare.zip -O /tmp/unisonShare.zip
-RUN mkdir /srv/share
-RUN unzip -d /srv/share /tmp/unisonShare.zip
-
-
-######################################################################
-# a ucm codebase server to be run alongside a codebase browser
-
-FROM base as ucm-codebase-server
-COPY --from=download-ucm /usr/local/bin/ucm /usr/local/bin/ucm
-COPY files/initialize-codebase.sh /usr/local/bin/initialize-codebase.sh
-COPY files/ucm_wrap /usr/local/bin/
-RUN apt-get -y install nginx gpg certbot python-certbot-nginx less git libnginx-mod-http-geoip- libnginx-mod-http-upstream-fair- && \
-    chmod +x /usr/local/bin/ucm_wrap /usr/local/bin/initialize-codebase.sh && \
-    /usr/local/bin/initialize-codebase.sh && \
-    rm -f /etc/nginx/sites-enabled/default
-COPY files/nginx.share.tpl /etc/nginx/share.tpl
-COPY --from=download-ucm /srv/share /srv/share
-ENTRYPOINT /usr/local/bin/ucm_wrap
-
