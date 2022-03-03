@@ -38,7 +38,7 @@ RUN \
 ######################################################################
 # a container for buliding ucm
 
-FROM base as haskell-builder
+FROM docker-builder as haskell-builder
 RUN apt-get -y install \
       build-essential \
       libffi-dev \
