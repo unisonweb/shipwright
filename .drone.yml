@@ -5,6 +5,7 @@ name: default
 
 trigger:
   ref:
+    - refs/heads/aws
     - refs/heads/trunk
     - refs/pull/**
     - refs/tags/**
