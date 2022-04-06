@@ -2,7 +2,7 @@ vault_version=1.7.0
 ucm_version=31
 build_number=${DRONE_BUILD_NUMBER}
 build_number := $(if $(build_number),$(build_number),latest)
-REPO:=registry.digitalocean.com/unison-lang
+REPO:=324181518966.dkr.ecr.us-east-1.amazonaws.com/unison-docker
 
 export build_number
 export vault_version
