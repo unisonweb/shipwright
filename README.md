@@ -8,7 +8,6 @@ This project is built automatically on [drone](https://drone.unison-lang.org/uni
 
 The makefile expects the DRONE_BUILD_NUMBER environment variable to be used as the version number for tagging the Docker images it builds.
 
-
     ❯ make help
     Usage:
     make build vault_version=1.7.0
