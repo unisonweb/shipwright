@@ -20,7 +20,7 @@ volumes:
 
 steps:
   - name: build
-    image: registry.digitalocean.com/unison-lang/docker-builder:1
+    image: 324181518966.dkr.ecr.us-east-1.amazonaws.com/docker-builder:7
     volumes:
       - name: docker_sock
         path: /var/run/docker.sock
