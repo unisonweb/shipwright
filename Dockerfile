@@ -51,6 +51,7 @@ RUN apt-get -y install \
       xz-utils \
       zlib1g-dev \
       git \
+      curl \
       gnupg \
       netbase && \
     wget https://get.haskellstack.org/stable/linux-x86_64.tar.gz -O- | tar -x -z -C /opt && \
