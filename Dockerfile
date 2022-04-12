@@ -33,7 +33,6 @@ FROM debianup as docker-builder
 RUN \
     wget https://get.docker.com/ -O- | su && \
     apt-get -y install build-essential
-    
 
 ######################################################################
 # a container for buliding ucm
@@ -44,6 +43,7 @@ RUN apt-get -y install \
       libffi-dev \
       libgmp-dev \
       libpq-dev \
+      libtinfo-dev \
       make \
       xz-utils \
       zlib1g-dev \
