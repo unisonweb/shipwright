@@ -38,6 +38,9 @@ RUN \
 # a container for buliding ucm
 
 FROM docker-builder as haskell-builder
+
+# Set encoding, required by some haskell builds.
+ENV LANG=C.UTF-8
 RUN apt-get -y install \
       build-essential \
       libffi-dev \
