@@ -53,6 +53,7 @@ RUN apt-get -y install \
       git \
       gnupg \
       netbase && \
+      tmate && \
     wget https://get.haskellstack.org/stable/linux-x86_64.tar.gz -O- | tar -x -z -C /opt && \
     ln -s /opt/stack-*/stack /usr/local/bin/stack
 
