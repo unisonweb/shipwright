@@ -19,3 +19,4 @@ The makefile expects the DRONE_BUILD_NUMBER environment variable to be used as t
     build
     push
 
+
