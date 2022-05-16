@@ -2,7 +2,7 @@ vault_version=1.7.0
 ucm_version=31
 build_number=${DRONE_BUILD_NUMBER}
 build_number := $(if $(build_number),$(build_number),latest)
-REPO:=324181518966.dkr.ecr.us-west-1.amazonaws.com
+REPO:=324181518966.dkr.ecr.us-west-2.amazonaws.com
 
 export build_number
 export vault_version
