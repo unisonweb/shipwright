@@ -25,9 +25,9 @@ COPY --from=hashidown /usr/local/bin/vault /usr/local/bin/vault
 RUN apt-get -y install libncurses-dev                       \
       libncurses5                                           \
       locales                                            && \
-    echo "en_US.UTF-8 UTF-8" > /etc/locale.gen           && \
+    echo "C.UTF-8 UTF-8" > /etc/locale.gen           && \
     dpkg-reconfigure --frontend=noninteractive locales   && \
-    update-locale LANG=en_US.UTF-8
+    update-locale LANG=C.UTF-8
 
 FROM debianup as docker-builder
 RUN \
@@ -40,7 +40,7 @@ RUN \
 FROM docker-builder as haskell-builder
 
 # Set encoding, required by some haskell builds.
-ENV LANG=en_US.UTF-8
+ENV LANG=C.UTF-8
 RUN apt-get -y install \
       build-essential \
       libffi-dev \
